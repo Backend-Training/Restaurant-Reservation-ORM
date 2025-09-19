@@ -29,5 +29,14 @@ public class RestaurantReservationDbContext : DbContext
             new Restaurant { RestaurantId = 4, Name = "City Bistro", Address = "321 Center St", PhoneNumber = "444-444-4444", OpeningHours = "09:00-22:00" },
             new Restaurant { RestaurantId = 5, Name = "Garden Eatery", Address = "654 Park Ln", PhoneNumber = "555-555-5555", OpeningHours = "08:00-20:00" }
         );
+        
+        modelBuilder.Entity<Table>().HasData(
+            new Table { TableId = 1, RestaurantId = 1, Capacity = 4 },
+            new Table { TableId = 2, RestaurantId = 2, Capacity = 6 },
+            new Table { TableId = 3, RestaurantId = 3, Capacity = 2 },
+            new Table { TableId = 4, RestaurantId = 4, Capacity = 4 },
+            new Table { TableId = 5, RestaurantId = 5, Capacity = 8 }
+        );
+
     }
 }
