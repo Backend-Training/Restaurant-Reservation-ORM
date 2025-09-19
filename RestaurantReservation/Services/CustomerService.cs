@@ -7,16 +7,16 @@ namespace RestaurantReservation.Services;
 public class CustomerService
 {
     
-    private readonly IRepository<Reservation> _efRepository;
+    private readonly IRepository<Reservation> _efReservationsRepository;
 
     public CustomerService(IRepository<Reservation> efRepository)
     {
-        _efRepository = efRepository;
+        _efReservationsRepository = efRepository;
     }
 
     public async Task<List<Reservation>> GetReservationsByCustomer(int customerId)
     {
-        return await _efRepository
+        return await _efReservationsRepository
             .Entities()
             .Where(r => r.CustomerId == customerId)
             .ToListAsync();
