@@ -32,4 +32,10 @@ public class EfRepository<T> : IRepository<T> where T : class
         _dbSet.Remove(entity);
         _context.SaveChanges();
     }
+    
+    public IQueryable<T> Entities()
+    {
+        return _dbSet.AsQueryable();
+    }   
+    
 }
