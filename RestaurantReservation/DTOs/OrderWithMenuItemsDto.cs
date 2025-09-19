@@ -1,7 +1,5 @@
 namespace RestaurantReservation.DTOs;
 
-public class OrderWithMenuItemsDto
-{
-    public int OrderId { get; set; }
-    public List<MenuItemDto> MenuItems { get; set; }
-}
+public record OrderWithMenuItemsDto(
+    int OrderId, 
+    List<MenuItemDto> MenuItems);
