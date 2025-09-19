@@ -6,17 +6,26 @@ namespace RestaurantReservation.Services;
 
 public class EmployeeService
 {
-    private readonly IRepository<Employee> _efRepository;
-
-    public EmployeeService(IRepository<Employee> efRepository)
+    private readonly IRepository<Employee> _efEmployeeRepository;
+    private readonly IRepository<Order> _efOrderRepository;
+    public EmployeeService(IRepository<Employee> efEmployeeRepository, IRepository<Order> efOrderRepository)
     {
-        _efRepository = efRepository;
+        _efEmployeeRepository = efEmployeeRepository;
+        _efOrderRepository = efOrderRepository;
     }
 
     public async Task<List<Employee>> ListAllManagers()
     {
-        return await _efRepository.Entities()
+        return await _efEmployeeRepository.Entities()
             .Where(e => e.Position == "Manager")
             .ToListAsync();
+    }
+
+    public async Task<decimal> CalculateAverageOrderAmount(int employeeId)
+    {
+        return await _efOrderRepository.Entities()
+            .Where(o => o.EmployeeId == employeeId)
+            .AverageAsync(o => o.TotalAmount);
+        
     }
 }

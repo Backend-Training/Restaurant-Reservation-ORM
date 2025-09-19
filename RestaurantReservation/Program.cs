@@ -1,4 +1,4 @@
-// List Orders With Their Menu Items Related To Reservation
+// Calculate Average Order Amount
 
 using RestaurantReservation.Db;
 using RestaurantReservation.Db.Models;
@@ -6,19 +6,11 @@ using RestaurantReservation.Repositories;
 using RestaurantReservation.Services;
 
 var context = new RestaurantReservationDbContext();
-var repo = new EfRepository<Order>(context);
-var reservationId = 3;
+var repoOrder = new EfRepository<Order>(context);
+var repoEmployee = new EfRepository<Employee>(context);
+var employeeId = 3;
 
-var reservationService = new ReservationService(repo);
-var orders = await reservationService.ListOrdersAndMenuItems(reservationId);
+var employeeService = new EmployeeService(repoEmployee,repoOrder);
+var orderAmount = await employeeService.CalculateAverageOrderAmount(employeeId);
 
-foreach (var orderDtos in orders)
-{
-    Console.WriteLine(orderDtos);
-    foreach (var item in orderDtos.MenuItems)
-    {
-        Console.WriteLine(item);
-    }
-
-    Console.WriteLine("--------------------------------------------");
-}
+Console.WriteLine(orderAmount);
