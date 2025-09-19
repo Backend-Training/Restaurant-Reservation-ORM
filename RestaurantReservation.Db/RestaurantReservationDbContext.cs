@@ -45,6 +45,14 @@ public class RestaurantReservationDbContext : DbContext
             new Customer { CustomerId = 4, FirstName = "Diana", LastName = "White", Email = "diana@example.com", PhoneNumber = "400-400-4000" },
             new Customer { CustomerId = 5, FirstName = "Ethan", LastName = "Green", Email = "ethan@example.com", PhoneNumber = "500-500-5000" }
         );
+        
+        modelBuilder.Entity<Reservation>().HasData(
+            new Reservation { ReservationId = 1, CustomerId = 1, RestaurantId = 1, TableId = 1, ReservationDate = DateTime.Now.AddDays(1), PartySize = 2 },
+            new Reservation { ReservationId = 2, CustomerId = 2, RestaurantId = 2, TableId = 2, ReservationDate = DateTime.Now.AddDays(2), PartySize = 4 },
+            new Reservation { ReservationId = 3, CustomerId = 3, RestaurantId = 3, TableId = 3, ReservationDate = DateTime.Now.AddDays(3), PartySize = 2 },
+            new Reservation { ReservationId = 4, CustomerId = 4, RestaurantId = 4, TableId = 4, ReservationDate = DateTime.Now.AddDays(4), PartySize = 3 },
+            new Reservation { ReservationId = 5, CustomerId = 5, RestaurantId = 5, TableId = 5, ReservationDate = DateTime.Now.AddDays(5), PartySize = 6 }
+        );
 
     }
 }
