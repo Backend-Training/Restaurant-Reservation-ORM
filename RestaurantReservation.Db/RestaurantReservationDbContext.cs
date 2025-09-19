@@ -161,6 +161,12 @@ public class RestaurantReservationDbContext : DbContext
             }
         );
         
-       
+        modelBuilder.Entity<OrderItem>().HasData(
+            new OrderItem { OrderItemId = 1, OrderId = 1, MenuItemId = 1, Quantity = 2 },
+            new OrderItem { OrderItemId = 2, OrderId = 2, MenuItemId = 2, Quantity = 1 },
+            new OrderItem { OrderItemId = 3, OrderId = 3, MenuItemId = 3, Quantity = 3 },
+            new OrderItem { OrderItemId = 4, OrderId = 4, MenuItemId = 4, Quantity = 1 },
+            new OrderItem { OrderItemId = 5, OrderId = 5, MenuItemId = 5, Quantity = 2 }
+        );
     }
 }
