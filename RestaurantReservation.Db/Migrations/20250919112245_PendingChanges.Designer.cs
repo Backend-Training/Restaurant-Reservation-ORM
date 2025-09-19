@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestaurantReservation.Db;
 
@@ -11,9 +12,11 @@ using RestaurantReservation.Db;
 namespace RestaurantReservation.Db.Migrations
 {
     [DbContext(typeof(RestaurantReservationDbContext))]
-    partial class RestaurantReservationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250919112245_PendingChanges")]
+    partial class PendingChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,48 +124,6 @@ namespace RestaurantReservation.Db.Migrations
                     b.HasIndex("RestaurantId");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            EmployeeId = 1,
-                            FirstName = "John",
-                            LastName = "Doe",
-                            Position = "Chef",
-                            RestaurantId = 1
-                        },
-                        new
-                        {
-                            EmployeeId = 2,
-                            FirstName = "Jane",
-                            LastName = "Doe",
-                            Position = "Waiter",
-                            RestaurantId = 2
-                        },
-                        new
-                        {
-                            EmployeeId = 3,
-                            FirstName = "Mike",
-                            LastName = "Ross",
-                            Position = "Manager",
-                            RestaurantId = 3
-                        },
-                        new
-                        {
-                            EmployeeId = 4,
-                            FirstName = "Rachel",
-                            LastName = "Zane",
-                            Position = "Chef",
-                            RestaurantId = 4
-                        },
-                        new
-                        {
-                            EmployeeId = 5,
-                            FirstName = "Harvey",
-                            LastName = "Specter",
-                            Position = "Manager",
-                            RestaurantId = 5
-                        });
                 });
 
             modelBuilder.Entity("RestaurantReservation.Db.Models.MenuItem", b =>
@@ -288,7 +249,7 @@ namespace RestaurantReservation.Db.Migrations
                             ReservationId = 1,
                             CustomerId = 1,
                             PartySize = 2,
-                            ReservationDate = new DateTime(2025, 9, 20, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReservationDate = new DateTime(2025, 9, 20, 14, 22, 44, 402, DateTimeKind.Local).AddTicks(5110),
                             RestaurantId = 1,
                             TableId = 1
                         },
@@ -297,7 +258,7 @@ namespace RestaurantReservation.Db.Migrations
                             ReservationId = 2,
                             CustomerId = 2,
                             PartySize = 4,
-                            ReservationDate = new DateTime(2025, 9, 21, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReservationDate = new DateTime(2025, 9, 21, 14, 22, 44, 405, DateTimeKind.Local).AddTicks(627),
                             RestaurantId = 2,
                             TableId = 2
                         },
@@ -306,7 +267,7 @@ namespace RestaurantReservation.Db.Migrations
                             ReservationId = 3,
                             CustomerId = 3,
                             PartySize = 2,
-                            ReservationDate = new DateTime(2025, 9, 22, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReservationDate = new DateTime(2025, 9, 22, 14, 22, 44, 405, DateTimeKind.Local).AddTicks(655),
                             RestaurantId = 3,
                             TableId = 3
                         },
@@ -315,7 +276,7 @@ namespace RestaurantReservation.Db.Migrations
                             ReservationId = 4,
                             CustomerId = 4,
                             PartySize = 3,
-                            ReservationDate = new DateTime(2025, 9, 23, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReservationDate = new DateTime(2025, 9, 23, 14, 22, 44, 405, DateTimeKind.Local).AddTicks(659),
                             RestaurantId = 4,
                             TableId = 4
                         },
@@ -324,7 +285,7 @@ namespace RestaurantReservation.Db.Migrations
                             ReservationId = 5,
                             CustomerId = 5,
                             PartySize = 6,
-                            ReservationDate = new DateTime(2025, 9, 24, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReservationDate = new DateTime(2025, 9, 24, 14, 22, 44, 405, DateTimeKind.Local).AddTicks(662),
                             RestaurantId = 5,
                             TableId = 5
                         });
