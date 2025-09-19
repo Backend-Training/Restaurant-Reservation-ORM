@@ -1,4 +1,4 @@
-// List All Managers Demo
+// List reservations by customer id
 
 using RestaurantReservation.Db;
 using RestaurantReservation.Db.Models;
@@ -6,11 +6,13 @@ using RestaurantReservation.Repositories;
 using RestaurantReservation.Services;
 
 var context = new RestaurantReservationDbContext();
-var repo = new EfRepository<Employee>(context);
+var repo = new EfRepository<Reservation>(context);
+var customerId = 3;
 
-var employeeService = new EmployeeService(repo);
-var listAllManagers = await employeeService.ListAllManagers();
-foreach (var manager in listAllManagers)
+var customerService = new CustomerService(repo);
+var reservations = await customerService.GetReservationsByCustomer(customerId);
+
+foreach (var reservation in reservations)
 {
-    Console.WriteLine(manager.FirstName);
+    Console.WriteLine(reservation.PartySize);
 }
