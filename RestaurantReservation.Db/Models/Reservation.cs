@@ -8,6 +8,6 @@ public class Reservation
 
     public Customer Customer { get; set; }
     public Restaurant Restaurant { get; set; }
-    public Table Table { get; set; }
+    public Table? Table { get; set; }
     public ICollection<Order> Orders { get; set; }
 }
