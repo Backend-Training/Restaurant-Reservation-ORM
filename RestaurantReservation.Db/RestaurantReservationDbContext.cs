@@ -61,6 +61,14 @@ public class RestaurantReservationDbContext : DbContext
             new Employee { EmployeeId = 4, RestaurantId = 4, FirstName = "Rachel", LastName = "Zane", Position = "Chef" },
             new Employee { EmployeeId = 5, RestaurantId = 5, FirstName = "Harvey", LastName = "Specter", Position = "Manager" }
         );
+        modelBuilder.Entity<MenuItem>().HasData(
+            new MenuItem { Id = 1, RestaurantId = 1, Name = "Burger", Description = "Beef burger", Price = 10 },
+            new MenuItem { Id = 2, RestaurantId = 2, Name = "Pizza", Description = "Cheese pizza", Price = 12 },
+            new MenuItem { Id = 3, RestaurantId = 3, Name = "Pasta", Description = "Spaghetti", Price = 11 },
+            new MenuItem { Id = 4, RestaurantId = 4, Name = "Salad", Description = "Greek salad", Price = 8 },
+            new MenuItem { Id = 5, RestaurantId = 5, Name = "Steak", Description = "Ribeye steak", Price = 20 }
+        );
+        
         
     }
 }
